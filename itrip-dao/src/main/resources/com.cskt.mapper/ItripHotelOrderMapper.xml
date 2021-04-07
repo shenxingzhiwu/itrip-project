@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskt.mapper.ItripHotelOrderMapper">
+  <resultMap id="BaseResultMap" type="com.cskt.entity.ItripHotelOrder">
+    <!--@mbg.generated-->
+    <!--@Table itrip_hotel_order-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="userId" jdbcType="BIGINT" property="userid" />
+    <result column="orderType" jdbcType="INTEGER" property="ordertype" />
+    <result column="orderNo" jdbcType="VARCHAR" property="orderno" />
+    <result column="tradeNo" jdbcType="VARCHAR" property="tradeno" />
+    <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+    <result column="hotelName" jdbcType="VARCHAR" property="hotelname" />
+    <result column="roomId" jdbcType="BIGINT" property="roomid" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="bookingDays" jdbcType="INTEGER" property="bookingdays" />
+    <result column="checkInDate" jdbcType="TIMESTAMP" property="checkindate" />
+    <result column="checkOutDate" jdbcType="TIMESTAMP" property="checkoutdate" />
+    <result column="orderStatus" jdbcType="INTEGER" property="orderstatus" />
+    <result column="payAmount" jdbcType="DECIMAL" property="payamount" />
+    <result column="payType" jdbcType="INTEGER" property="paytype" />
+    <result column="noticePhone" jdbcType="VARCHAR" property="noticephone" />
+    <result column="noticeEmail" jdbcType="VARCHAR" property="noticeemail" />
+    <result column="specialRequirement" jdbcType="LONGVARCHAR" property="specialrequirement" />
+    <result column="isNeedInvoice" jdbcType="INTEGER" property="isneedinvoice" />
+    <result column="invoiceType" jdbcType="INTEGER" property="invoicetype" />
+    <result column="invoiceHead" jdbcType="VARCHAR" property="invoicehead" />
+    <result column="linkUserName" jdbcType="VARCHAR" property="linkusername" />
+    <result column="bookType" jdbcType="INTEGER" property="booktype" />
+    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, userId, orderType, orderNo, tradeNo, hotelId, hotelName, roomId, `count`, bookingDays, 
+    checkInDate, checkOutDate, orderStatus, payAmount, payType, noticePhone, noticeEmail, 
+    specialRequirement, isNeedInvoice, invoiceType, invoiceHead, linkUserName, bookType, 
+    creationDate, createdBy, modifyDate, modifiedBy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from itrip_hotel_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from itrip_hotel_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cskt.entity.ItripHotelOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into itrip_hotel_order (userId, orderType, orderNo, 
+      tradeNo, hotelId, hotelName, 
+      roomId, `count`, bookingDays, 
+      checkInDate, checkOutDate, orderStatus, 
+      payAmount, payType, noticePhone, 
+      noticeEmail, specialRequirement, isNeedInvoice, 
+      invoiceType, invoiceHead, linkUserName, 
+      bookType, creationDate, createdBy, 
+      modifyDate, modifiedBy)
+    values (#{userid,jdbcType=BIGINT}, #{ordertype,jdbcType=INTEGER}, #{orderno,jdbcType=VARCHAR}, 
+      #{tradeno,jdbcType=VARCHAR}, #{hotelid,jdbcType=BIGINT}, #{hotelname,jdbcType=VARCHAR}, 
+      #{roomid,jdbcType=BIGINT}, #{count,jdbcType=INTEGER}, #{bookingdays,jdbcType=INTEGER}, 
+      #{checkindate,jdbcType=TIMESTAMP}, #{checkoutdate,jdbcType=TIMESTAMP}, #{orderstatus,jdbcType=INTEGER}, 
+      #{payamount,jdbcType=DECIMAL}, #{paytype,jdbcType=INTEGER}, #{noticephone,jdbcType=VARCHAR}, 
+      #{noticeemail,jdbcType=VARCHAR}, #{specialrequirement,jdbcType=LONGVARCHAR}, #{isneedinvoice,jdbcType=INTEGER}, 
+      #{invoicetype,jdbcType=INTEGER}, #{invoicehead,jdbcType=VARCHAR}, #{linkusername,jdbcType=VARCHAR}, 
+      #{booktype,jdbcType=INTEGER}, #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, 
+      #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cskt.entity.ItripHotelOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into itrip_hotel_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="ordertype != null">
+        orderType,
+      </if>
+      <if test="orderno != null">
+        orderNo,
+      </if>
+      <if test="tradeno != null">
+        tradeNo,
+      </if>
+      <if test="hotelid != null">
+        hotelId,
+      </if>
+      <if test="hotelname != null">
+        hotelName,
+      </if>
+      <if test="roomid != null">
+        roomId,
+      </if>
+      <if test="count != null">
+        `count`,
+      </if>
+      <if test="bookingdays != null">
+        bookingDays,
+      </if>
+      <if test="checkindate != null">
+        checkInDate,
+      </if>
+      <if test="checkoutdate != null">
+        checkOutDate,
+      </if>
+      <if test="orderstatus != null">
+        orderStatus,
+      </if>
+      <if test="payamount != null">
+        payAmount,
+      </if>
+      <if test="paytype != null">
+        payType,
+      </if>
+      <if test="noticephone != null">
+        noticePhone,
+      </if>
+      <if test="noticeemail != null">
+        noticeEmail,
+      </if>
+      <if test="specialrequirement != null">
+        specialRequirement,
+      </if>
+      <if test="isneedinvoice != null">
+        isNeedInvoice,
+      </if>
+      <if test="invoicetype != null">
+        invoiceType,
+      </if>
+      <if test="invoicehead != null">
+        invoiceHead,
+      </if>
+      <if test="linkusername != null">
+        linkUserName,
+      </if>
+      <if test="booktype != null">
+        bookType,
+      </if>
+      <if test="creationdate != null">
+        creationDate,
+      </if>
+      <if test="createdby != null">
+        createdBy,
+      </if>
+      <if test="modifydate != null">
+        modifyDate,
+      </if>
+      <if test="modifiedby != null">
+        modifiedBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="ordertype != null">
+        #{ordertype,jdbcType=INTEGER},
+      </if>
+      <if test="orderno != null">
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeno != null">
+        #{tradeno,jdbcType=VARCHAR},
+      </if>
+      <if test="hotelid != null">
+        #{hotelid,jdbcType=BIGINT},
+      </if>
+      <if test="hotelname != null">
+        #{hotelname,jdbcType=VARCHAR},
+      </if>
+      <if test="roomid != null">
+        #{roomid,jdbcType=BIGINT},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="bookingdays != null">
+        #{bookingdays,jdbcType=INTEGER},
+      </if>
+      <if test="checkindate != null">
+        #{checkindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkoutdate != null">
+        #{checkoutdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderstatus != null">
+        #{orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="payamount != null">
+        #{payamount,jdbcType=DECIMAL},
+      </if>
+      <if test="paytype != null">
+        #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="noticephone != null">
+        #{noticephone,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeemail != null">
+        #{noticeemail,jdbcType=VARCHAR},
+      </if>
+      <if test="specialrequirement != null">
+        #{specialrequirement,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isneedinvoice != null">
+        #{isneedinvoice,jdbcType=INTEGER},
+      </if>
+      <if test="invoicetype != null">
+        #{invoicetype,jdbcType=INTEGER},
+      </if>
+      <if test="invoicehead != null">
+        #{invoicehead,jdbcType=VARCHAR},
+      </if>
+      <if test="linkusername != null">
+        #{linkusername,jdbcType=VARCHAR},
+      </if>
+      <if test="booktype != null">
+        #{booktype,jdbcType=INTEGER},
+      </if>
+      <if test="creationdate != null">
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdby != null">
+        #{createdby,jdbcType=BIGINT},
+      </if>
+      <if test="modifydate != null">
+        #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedby != null">
+        #{modifiedby,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cskt.entity.ItripHotelOrder">
+    <!--@mbg.generated-->
+    update itrip_hotel_order
+    <set>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="ordertype != null">
+        orderType = #{ordertype,jdbcType=INTEGER},
+      </if>
+      <if test="orderno != null">
+        orderNo = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeno != null">
+        tradeNo = #{tradeno,jdbcType=VARCHAR},
+      </if>
+      <if test="hotelid != null">
+        hotelId = #{hotelid,jdbcType=BIGINT},
+      </if>
+      <if test="hotelname != null">
+        hotelName = #{hotelname,jdbcType=VARCHAR},
+      </if>
+      <if test="roomid != null">
+        roomId = #{roomid,jdbcType=BIGINT},
+      </if>
+      <if test="count != null">
+        `count` = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="bookingdays != null">
+        bookingDays = #{bookingdays,jdbcType=INTEGER},
+      </if>
+      <if test="checkindate != null">
+        checkInDate = #{checkindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkoutdate != null">
+        checkOutDate = #{checkoutdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderstatus != null">
+        orderStatus = #{orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="payamount != null">
+        payAmount = #{payamount,jdbcType=DECIMAL},
+      </if>
+      <if test="paytype != null">
+        payType = #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="noticephone != null">
+        noticePhone = #{noticephone,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeemail != null">
+        noticeEmail = #{noticeemail,jdbcType=VARCHAR},
+      </if>
+      <if test="specialrequirement != null">
+        specialRequirement = #{specialrequirement,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isneedinvoice != null">
+        isNeedInvoice = #{isneedinvoice,jdbcType=INTEGER},
+      </if>
+      <if test="invoicetype != null">
+        invoiceType = #{invoicetype,jdbcType=INTEGER},
+      </if>
+      <if test="invoicehead != null">
+        invoiceHead = #{invoicehead,jdbcType=VARCHAR},
+      </if>
+      <if test="linkusername != null">
+        linkUserName = #{linkusername,jdbcType=VARCHAR},
+      </if>
+      <if test="booktype != null">
+        bookType = #{booktype,jdbcType=INTEGER},
+      </if>
+      <if test="creationdate != null">
+        creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdby != null">
+        createdBy = #{createdby,jdbcType=BIGINT},
+      </if>
+      <if test="modifydate != null">
+        modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedby != null">
+        modifiedBy = #{modifiedby,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cskt.entity.ItripHotelOrder">
+    <!--@mbg.generated-->
+    update itrip_hotel_order
+    set userId = #{userid,jdbcType=BIGINT},
+      orderType = #{ordertype,jdbcType=INTEGER},
+      orderNo = #{orderno,jdbcType=VARCHAR},
+      tradeNo = #{tradeno,jdbcType=VARCHAR},
+      hotelId = #{hotelid,jdbcType=BIGINT},
+      hotelName = #{hotelname,jdbcType=VARCHAR},
+      roomId = #{roomid,jdbcType=BIGINT},
+      `count` = #{count,jdbcType=INTEGER},
+      bookingDays = #{bookingdays,jdbcType=INTEGER},
+      checkInDate = #{checkindate,jdbcType=TIMESTAMP},
+      checkOutDate = #{checkoutdate,jdbcType=TIMESTAMP},
+      orderStatus = #{orderstatus,jdbcType=INTEGER},
+      payAmount = #{payamount,jdbcType=DECIMAL},
+      payType = #{paytype,jdbcType=INTEGER},
+      noticePhone = #{noticephone,jdbcType=VARCHAR},
+      noticeEmail = #{noticeemail,jdbcType=VARCHAR},
+      specialRequirement = #{specialrequirement,jdbcType=LONGVARCHAR},
+      isNeedInvoice = #{isneedinvoice,jdbcType=INTEGER},
+      invoiceType = #{invoicetype,jdbcType=INTEGER},
+      invoiceHead = #{invoicehead,jdbcType=VARCHAR},
+      linkUserName = #{linkusername,jdbcType=VARCHAR},
+      bookType = #{booktype,jdbcType=INTEGER},
+      creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      createdBy = #{createdby,jdbcType=BIGINT},
+      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      modifiedBy = #{modifiedby,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

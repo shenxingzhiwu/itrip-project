@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskt.mapper.ItripHotelTradingAreaMapper">
+  <resultMap id="BaseResultMap" type="com.cskt.entity.ItripHotelTradingArea">
+    <!--@mbg.generated-->
+    <!--@Table itrip_hotel_trading_area-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+    <result column="areaId" jdbcType="BIGINT" property="areaid" />
+    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, hotelId, areaId, creationDate, createdBy, modifyDate, modifiedBy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from itrip_hotel_trading_area
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from itrip_hotel_trading_area
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cskt.entity.ItripHotelTradingArea" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into itrip_hotel_trading_area (hotelId, areaId, creationDate, 
+      createdBy, modifyDate, modifiedBy
+      )
+    values (#{hotelid,jdbcType=BIGINT}, #{areaid,jdbcType=BIGINT}, #{creationdate,jdbcType=TIMESTAMP}, 
+      #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cskt.entity.ItripHotelTradingArea" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into itrip_hotel_trading_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hotelid != null">
+        hotelId,
+      </if>
+      <if test="areaid != null">
+        areaId,
+      </if>
+      <if test="creationdate != null">
+        creationDate,
+      </if>
+      <if test="createdby != null">
+        createdBy,
+      </if>
+      <if test="modifydate != null">
+        modifyDate,
+      </if>
+      <if test="modifiedby != null">
+        modifiedBy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hotelid != null">
+        #{hotelid,jdbcType=BIGINT},
+      </if>
+      <if test="areaid != null">
+        #{areaid,jdbcType=BIGINT},
+      </if>
+      <if test="creationdate != null">
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdby != null">
+        #{createdby,jdbcType=BIGINT},
+      </if>
+      <if test="modifydate != null">
+        #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedby != null">
+        #{modifiedby,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cskt.entity.ItripHotelTradingArea">
+    <!--@mbg.generated-->
+    update itrip_hotel_trading_area
+    <set>
+      <if test="hotelid != null">
+        hotelId = #{hotelid,jdbcType=BIGINT},
+      </if>
+      <if test="areaid != null">
+        areaId = #{areaid,jdbcType=BIGINT},
+      </if>
+      <if test="creationdate != null">
+        creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdby != null">
+        createdBy = #{createdby,jdbcType=BIGINT},
+      </if>
+      <if test="modifydate != null">
+        modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedby != null">
+        modifiedBy = #{modifiedby,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cskt.entity.ItripHotelTradingArea">
+    <!--@mbg.generated-->
+    update itrip_hotel_trading_area
+    set hotelId = #{hotelid,jdbcType=BIGINT},
+      areaId = #{areaid,jdbcType=BIGINT},
+      creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      createdBy = #{createdby,jdbcType=BIGINT},
+      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      modifiedBy = #{modifiedby,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
